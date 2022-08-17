@@ -1,8 +1,9 @@
 const inputDob = document.querySelector("#dob-input");
-const num = document.querySelector("#lucky-num").value;
+const luckyNum = document.querySelector("#lucky-num");
 const checkBtn = document.querySelector("#check-button");
+const textarea = document.querySelector("#text-area");
 
-
+textarea.style.display = "none";
 
 const addDate = ()=>{
     let datesum = 0;
@@ -21,7 +22,16 @@ const addDate = ()=>{
 
 const checkLucky = ()=>{
     const dob = addDate();
-    console.log(dob);
+    const number = luckyNum.value;
+    if(dob%number === 0){
+        console.log("lucky")
+        textarea.style.display = "block";
+        textarea.innerText = "Yayy! "+ number+" is lucky!";
+    }else {
+        console.log("nooooooo")
+        textarea.style.display = "block";
+        textarea.innerText = "Oops! It's not lucky.";
+    }
 }
 
 
